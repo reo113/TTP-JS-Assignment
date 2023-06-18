@@ -243,7 +243,7 @@ function range(start, end) {
 
 function moveZeros(nums) {
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
+    for (let j = i; j < nums.length; j++) {
       if (nums[j] != 0) {
         [nums[j], nums[i]] = [nums[i], nums[j]];
         break;
@@ -252,7 +252,7 @@ function moveZeros(nums) {
   }
 }
 
-const a = [0, 1, 0, 3, 12];
+const a = [1, 0, 0, 0, 12];
 moveZeros(a);
 console.log(a);
 // Output: [1,3,12,0,0]
