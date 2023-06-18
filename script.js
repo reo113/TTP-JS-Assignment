@@ -214,20 +214,49 @@ function range(start, end) {
 
 /////////////////////////////////
 
-function reverseArray(arr) {
-  const revArr = [];
-  let idx = 0;
-  for (let i = arr.length - 1; i >= 0; i--) {
-    revArr[idx++] = arr[i];
-  }
-  console.log(revArr);
-}
-reverseArray(range(1, 10));
+// function reverseArray(arr) {
+//   const revArr = [];
+//   let idx = 0;
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     revArr[idx++] = arr[i];
+//   }
+//   console.log(revArr);
+// }
+// reverseArray(range(1, 10));
 
 /////////////////////////////
 
-function reverseInPlace(arr, size){
-  if(size > 1){
-    reverseInPlace(arr+1,size -1)
+// function reverseInPlace(arr, start, end) {
+//   while (start < end) {
+//     [arr[end], arr[start]] = [arr[start], arr[end]];
+//     start++;
+//     end--;
+//   }
+// }
+// const arr = [1,2,3,4,5];
+// console.log(arr);
+// reverseInPlace(arr, 0, arr.length - 1);
+// console.log(arr);
+
+//////////////////////////////
+// 1: Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+function moveZeros(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] != 0) {
+        [nums[j], nums[i]] = [nums[i], nums[j]];
+        break;
+      }
+    }
   }
 }
+
+const a = [0, 1, 0, 3, 12];
+moveZeros(a);
+console.log(a);
+// Output: [1,3,12,0,0]
+
+// Note:
+
+// You must do this in-place without making a copy of the array.
